@@ -78,8 +78,12 @@ function! GetIdrisIndent()
     return match(prevline, '[{([]')
   endif
 
-  if prevline =~ '\<let\>\s\+.\+\<in\>\s*$'
-    return match(prevline, '\<let\>') + g:idris_indent_let
+  "if prevline =~ '\<let\>\s\+.\+\<in\>\s*$'
+  "  return match(prevline, '\<let\>') + g:idris_indent_let
+  "endif
+
+  if prevline =~ '\<let\>\s\+.\+\n$'
+      return match(prevline, '\<let\>') + g:idris_indent_let
   endif
 
   if prevline =~ '\<rewrite\>\s\+.\+\<in\>\s*$'
