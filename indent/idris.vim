@@ -78,7 +78,7 @@ function! GetIdrisIndent()
     return match(prevline, '[{([]')
   endif
 
-  if prevline =~ '\<let\>\s\+.\+\(\<in\>\)*\s*$'
+  if prevline =~ '\<let\>\s\+.\+\(\<in\>\)*\s*\n$'
     return match(prevline, '\<let\>') + g:idris_indent_let
   endif
 
